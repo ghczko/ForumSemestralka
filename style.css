@@ -129,11 +129,25 @@
     height: 155px;
     overflow: hidden;
 }
+
+.divTopic {
+    height: 200px;
+    overflow: hidden;
+}
+
+
+.divTag {
+    overflow: hidden;
+}
 #div_topic{
     font-family: roboto;
     margin: 10px 10px 0px 0px;
 
     /*padding: 45px 15px 45px 15px;*/
+
+}
+.container a{
+    text-decoration: none;
 
 }
 .labeltag{

@@ -12,8 +12,8 @@ $stmt_tags->execute();
 $tags = $stmt_tags->fetchAll();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $parametr = "?cat_id=".$_POST['topic_tags'];
-    header('Location: index.php'.$parametr);
+    $parametr = "?cat_id=" . $_POST['topic_tags'];
+    header('Location: index.php' . $parametr);
 }
 
 ?>
@@ -31,12 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <?php include 'navbar.php' ?>
 <div class="container">
-<div class="title text-center">
-    <div class="centered">
-    <h1>Fórum</h1>
-    <p>Zde najdeš odpověď na cokoliv...</p>
+    <div class="title text-center">
+        <div class="centered">
+            <h1>Fórum</h1>
+            <p>Zde najdeš odpověď na cokoliv...</p>
+        </div>
     </div>
-</div>
 </div>
 
 <div class="container">
@@ -55,16 +55,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <hr>
     <h3>Tagy</h3>
+
     <?php foreach ($tags as $row) { ?>
+            <a href='tags.php?tags_id=<?= $row['id'] ?>'><label style="background-color: 7BBBE3" class="btn btn-info" value="<?= $row['id'] ?>"><?= $row['tags_name'] ?></button>
+            </a>
 
-        <a href='tags.php?tags_id=<?= $row['id'] ?>'><button type="button" name="tag_button" class="btn btn-info" value="<?= $row['id'] ?>"><?= $row['tags_name'] ?></button>
-        </a>
-<!--        <button type="button" name="tag_button" class="btn btn-info" value="--><?//= $row['id'] ?><!--">--><?//= $row['tags_name'] ?><!--</button>-->
-<!--               <a href='topics.php?cat_id=--><?//= $row['cat_id'] ?><!--'>--><?//= $row['cat_name'] ?><!-- <span-->
-<!--                                class="badge">--><?//= $row['cat_badge'] ?><!--</span></a></h3>-->
-<!--                <p>--><?//= substr($row['cat_description'], 0, 150) ?><!-- --><?//= strlen($row['cat_description']) > 150 ? "..." : "" ?><!--</p>-->
 
-    <?php }?>
+        <!--        <button type="button" name="tag_button" class="btn btn-info" value="--><? //= $row['id'] ?><!--">--><? //= $row['tags_name'] ?><!--</button>-->
+        <!--               <a href='topics.php?cat_id=--><? //= $row['cat_id'] ?><!--'>--><? //= $row['cat_name'] ?><!-- <span-->
+        <!--                                class="badge">--><? //= $row['cat_badge'] ?><!--</span></a></h3>-->
+        <!--                <p>--><? //= substr($row['cat_description'], 0, 150) ?><!-- --><? //= strlen($row['cat_description']) > 150 ? "..." : "" ?><!--</p>-->
+
+    <?php } ?>
 </div>
 
 <?php include 'footer.php' ?>
